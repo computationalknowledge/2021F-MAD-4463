@@ -1,0 +1,30 @@
+
+public class TEST {
+	static GREEN [] colorArray;
+	public static void main(String[] args) {
+		colorArray = new GREEN[100];
+		 
+		for (int counter = 0 ;counter<100; counter++) {
+			colorArray[counter] = new GREEN();
+		}
+		
+		(new Worker()).DoStuff();
+	}
+}
+
+class Worker{
+	void DoStuff() {
+		for (int counter = 0; counter<(TEST.colorArray).length; counter++) {
+			((TEST.colorArray)[counter]).SayHello();
+		}
+	}
+}
+
+class GREEN{
+	
+	public void ObjectFactory() {
+		
+	}
+	
+	public void SayHello() {System.out.println("HELLO"); }
+}
