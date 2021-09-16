@@ -16,6 +16,15 @@ public class MainApplication{
 			case "add": System.out.println(c.Add(num1,num2)) ;
                      break;
 
+			case "sub": System.out.println(c.Substract(num1,num2)) ;
+                     break;
+
+			case "mult": System.out.println(c.Multiply(num1,num2)) ;
+                     break;
+
+			case "div": System.out.println(c.Divide(num1,num2)) ;
+                     break;
+
 			default: System.out.println("Invalid Operation Specified");
 	        	break;
         }
@@ -41,8 +50,16 @@ class Calculator{
 		return a * b;
 	}
 
-	int divide(int a, int b){
-		return a / b;
+	int Divide(int a, int b){
+		// if (b == 0){System.out.println("Cannot divide by ZERO!!");  return -999;}
+		int answer = 0;
+		// a more elegant solution is to use Exception Handling
+
+		try {answer = a / b;}
+		catch (Exception e){System.out.println("Cannot divide by ZERO!!");}
+
+
+		return answer;
 	}
 
 
