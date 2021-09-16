@@ -1,0 +1,15 @@
+// example of a complete Java Application:
+
+// Composition of a Java Program
+// Classes and Objects
+// Constructors
+// Methods Connect Objects: Communication between Classes and Objects
+// 4 Kinds of Variables
+
+public class Calculator{
+	
+	public static void main(String [] args){
+		System.out.println("Hello " + args[0]); 
+	}
+
+}
