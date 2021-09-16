@@ -6,10 +6,23 @@
 // Methods Connect Objects: Communication between Classes and Objects
 // 4 Kinds of Variables
 
-public class Calculator{
+public class MainApplication{
 	
 	public static void main(String [] args){
+		int result;
 		System.out.println("Hello " + args[0]); 
-	}
+		//Calculator calc = new Calculator();
+		//result = calc.Add(2,2);
+		result = (new Calculator()).Add(3,4);
 
+		System.out.println(result);
+	}
 }
+
+class Calculator{
+	public int result;
+	public int Add(int input1, int input2){
+		return input1 + input2;
+	}
+}
+// @todo create methods for subtract, multiple, devide
