@@ -14,7 +14,8 @@ public class MainApplication{
 		//Calculator calc = new Calculator();
 		//result = calc.Add(2,2);
 		result = (new Calculator()).Add(3,4);
-
+		Factory f = new Factory();
+		f.MakeCalculators();
 		System.out.println(result);
 	}
 }
@@ -26,3 +27,14 @@ class Calculator{
 	}
 }
 // @todo create methods for subtract, multiple, devide
+
+class Factory{
+	Calculator [] a = new Calculator[5];
+	// factory design patterns
+	public void MakeCalculators(){
+		for (int counter = 0; counter<a.length; counter++) {
+			a[counter] = new Calculator();
+			System.out.println(a[counter].Add(2,2));
+		}
+	} 
+}
