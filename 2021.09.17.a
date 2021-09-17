@@ -1,10 +1,33 @@
 // Calculator
 
-public class Calculator{
+public class MainApplication{
+	// statics and instance members
+	// if you do NOT use the static key: by default it is instance
+	
+	Calculator c;
 	
 	public static void main(String [] args){
-		System.out.println("HELLO");
+		c = new Calculator();
+		c = new Calculator();
+		c = new Calculator();
 
+		System.out.println(Calculator.displayNumberOfCalculators());
+
+	}
+
+}
+
+
+class Calculator{
+
+	static int numberOfCalculators;
+
+	public Calculator(){
+		numberOfCalculators++;
+	}
+
+	public static int displayNumberOfCalculators(){
+		return numberOfCalculators;
 	}
 
 }
