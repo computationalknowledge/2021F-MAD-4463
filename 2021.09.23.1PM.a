@@ -2,24 +2,28 @@
 public class Canada {
 
 	public static void main(String[] args) {
-		// instantiate your worker class
-		// run()
+		Worker blue = new Worker();
+		blue.WalkOverArray();
 	}
 }
-
 
 class Worker{
 	// data members
 	// method members
 	
 	int Result = 0;
-	
-	public int AddNumbers(int startNumber, int endNumber, int stepNumber) {
+	// String [] cars = {, , , , };
+
+public void WalkOverArray() {
+		String [] cars = new String[5];
+		cars[0] = "BMW";
+		cars[1] = "Porche";
+		cars[2] = "MBenz";
+		cars[3] = "Cadillac";
+		cars[4] = "Masarati";
 		
-		for ( int counter = startNumber; counter <= endNumber ; counter += stepNumber) {
-			Result += counter;
+		for (int counter=0 ; counter < cars.length ; counter++) {
+			System.out.println(cars[counter]);
 		}
-		
-		return Result;
 	}
 }
