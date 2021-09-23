@@ -1,0 +1,23 @@
+
+public class FirstProgram {
+
+	public static void main(String[] args) {
+		AddNumbers a = new AddNumbers();
+		int theAnswer = a.ProcessNumbers(1, 100, 7);
+		System.out.println("the answer is " + String.valueOf(theAnswer));
+	}
+
+}
+
+class AddNumbers{
+	// add a given set of numbers and return the result
+	int result = 0;
+	
+	int ProcessNumbers(int startNumber, int stopNumber, int stepNumber) {
+		for (int counter = startNumber ; counter<= stopNumber ; counter+= stepNumber) {
+			result += counter;
+		}
+		
+		return result;
+	}
+}
