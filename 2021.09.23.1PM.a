@@ -1,0 +1,25 @@
+
+public class Canada {
+
+	public static void main(String[] args) {
+		// instantiate your worker class
+		// run()
+	}
+}
+
+
+class Worker{
+	// data members
+	// method members
+	
+	int Result = 0;
+	
+	public int AddNumbers(int startNumber, int endNumber, int stepNumber) {
+		
+		for ( int counter = startNumber; counter <= endNumber ; counter += stepNumber) {
+			Result += counter;
+		}
+		
+		return Result;
+	}
+}
