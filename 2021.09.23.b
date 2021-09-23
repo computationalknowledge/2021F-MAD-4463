@@ -2,8 +2,9 @@
 public class SecondProgram {
 
 	public static void main(String[] args) {
-		Grapefruit g = new Grapefruit();
-		int i = 0;
+		// anonymous object references
+		( new Grapefruit() ).run() ;   // method chaining
+		
 		System.out.println("FINI");
 	}
 }
@@ -11,5 +12,13 @@ public class SecondProgram {
 
 class Grapefruit{
 	
+	
+	
 	String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+	
+	public void run() {
+		for (int counter = 0 ; counter < cars.length ; counter++ ) {
+			System.out.println(cars[counter]);
+		}
+	}
 }
