@@ -1,0 +1,294 @@
+// Learning Outcomes:
+// file system
+// data structures
+// complex algorithms
+
+import java.io.*;
+
+public class MainApplication {
+
+	public static void main(String[] args) {
+		Hypervisor programController = new Hypervisor();
+		programController.RunProgram();
+		System.out.println("Number of records " + RealEstateRecord.numRecords);
+	}
+
+}
+
+class Hypervisor {
+	static int lineNumber = 1;
+
+	// gets called first
+	// issues all the method calls to make the application work
+	public void RunProgram() {
+		FileHandler f = new FileHandler();
+		f.importDataFile();
+	}
+}
+
+class FileHandler {
+	RealEstateRecord record;
+	String fileName = "c:/pineapple/redata.csv";
+	String line = null;
+
+	void createRealEstateRecord(String line) {
+		record = new RealEstateRecord(line);
+		// System.out.println(record);
+	}
+
+	void importDataFile() {
+		try {
+			// FileReader reads text files in the default encoding.
+			FileReader fileReader = new FileReader(fileName);
+
+			// Always wrap FileReader in BufferedReader.
+			BufferedReader bufferedReader = new BufferedReader(fileReader);
+
+			while ((line = bufferedReader.readLine()) != null) {
+				this.createRealEstateRecord(line);
+			}
+
+			// Always close files.
+			bufferedReader.close();
+		} catch (FileNotFoundException ex) {
+			System.out.println("Unable to open file '" + fileName + "'");
+		} catch (IOException ex) {
+			System.out.println("Error reading file '" + fileName + "'");
+			// Or we could just do this:
+			// ex.printStackTrace();
+		}
+	}
+}
+
+class RealEstateRecord {
+
+	static int numRecords = 0;
+	String HouseType;
+	String HouseDescription;
+	String Community;
+	double ListPrice;
+	double SoldPrice;
+	double Taxes;
+	String StreetName;
+	String StNumber;
+	int NumberOfBedrooms;
+	int NumberOfBedPlus;
+	double NumberOfBaths;
+	double Front;
+	int ParkingDriveSpaces;
+	double Depth;
+	String GarageType;
+	String PoolDescription;
+	String BrokerRemarks;
+	String RemarksForClients;
+	String ExtraDetails;
+	String BasementDescription1;
+	String BasementDescription2;
+
+	public RealEstateRecord(String inputLine) {
+		this.parseInputLine(inputLine);
+	}
+
+	void parseInputLine(String oneLine) {
+		int ArrayIndex = 0;
+		String[] datafields = oneLine.split(";");
+		Hypervisor.lineNumber++;
+
+		try {
+			this.HouseType = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: " + ArrayIndex + "  "
+					+ datafields[ArrayIndex] + " " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+		try {
+			this.HouseDescription = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		try {
+			this.Community = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.ListPrice = Double.parseDouble(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.SoldPrice = Double.parseDouble(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.Taxes = Double.parseDouble(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.StreetName = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.StNumber = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.NumberOfBedrooms = Integer.parseInt(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.NumberOfBedPlus = Integer.parseInt(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+		try {
+			this.NumberOfBaths = Integer.parseInt(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+		try
+
+		{
+			this.Front = Integer.parseInt(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+
+		try {
+			this.ParkingDriveSpaces = Integer.parseInt(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.Depth = Integer.parseInt(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+
+		ArrayIndex++;
+		try {
+			this.GarageType = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+		try {
+			this.PoolDescription = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+
+		try {
+			this.BrokerRemarks = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+
+		try {
+			this.RemarksForClients = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+
+		try {
+			this.ExtraDetails = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ datafields[ArrayIndex] + " " + ArrayIndex + "  " + this);
+			System.out.println(oneLine);
+		}
+		ArrayIndex++;
+		try {
+			this.BasementDescription1 = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("error at line number:" + Hypervisor.lineNumber + " array Index: " + " " + ArrayIndex
+					+ "  " + this);
+		}
+
+		try {
+			System.out.println(datafields[ArrayIndex]);
+		} catch (Exception e) {
+			System.out.println("array index out of bounds : " + ArrayIndex);
+		}
+		System.out.println(oneLine);
+
+		ArrayIndex++;
+
+		try {
+			this.BasementDescription2 = datafields[ArrayIndex];
+		} catch (Exception e) {
+			System.out.println("******  error at line number:" + Hypervisor.lineNumber + " array Index: "
+					+ " " + String.valueOf(ArrayIndex ));
+			System.out.println(oneLine);
+		}
+		numRecords++;
+
+	}
+
+	public String toString() {
+		return this.HouseType + " " + this.HouseDescription + " " + this.StNumber + " " + this.StreetName + " " + this.ListPrice  + " " + this.SoldPrice;
+	}
+}
