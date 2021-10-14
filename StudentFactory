@@ -1,0 +1,44 @@
+/*	Write a Java Program to create a STUDENT TYPE
+	Make 3 objects from this class and store them in an Array
+	Walk over the array and out put the student records	*/
+
+public class MainApplication {
+
+	public static void main(String[] args) {
+		Hypervisor h1 = new Hypervisor();
+		h1.run();
+	}
+}
+
+class Hypervisor {
+	public void run() {
+		StudentFactory.CreateStudents();
+	}
+}
+
+class Student {
+	public Student(String sname, String sid, String student_program, String student_term) {
+		this.studentName = sname;
+		this.studentID = sid;
+		this.program = student_program;
+		this.term = student_term;
+	}
+
+	public String studentName;
+	public String studentID;
+	public String program;
+	public String term;
+
+	public String toString() {
+		return this.studentName + " " + this.studentID + " " + this.program + " " + this.term;
+	}
+
+}
+
+class StudentFactory {
+	public static void CreateStudents() {
+		for (int counter = 0; counter < 1000; counter++) {
+			new Student("Joe", "C001", "CSAT", "3");
+		}
+	}
+}
