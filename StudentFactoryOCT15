@@ -1,8 +1,12 @@
+// what do you need to do to make this code work??
+
+
 /*
 	Write a Java Program to create a STUDENT TYPE : DONE
 	Make 3 objects from this class and store them in an Array
 	walk over the array and out put the student records
 */
+import java.util.*;
 
 public class MainApplicationj {
 	public static void main(String[] args) {
@@ -16,15 +20,26 @@ class Hypervisor {
 	// method choreography
 	public void run() {
 		StudentFactory.MakeStudents();
+		DataStorage.DisplayStudentReport();
 	}
 }
 
 // let's use the Software Pattern: The Factory Method
 
-class StudentFactory{
+class StudentFactory {
 	public static void MakeStudents() {
-		for (int counter=0; counter < 1000 ; counter++) {
-			new Student("C11111", "Joe", "3", "1", "MAD");
+		for (int counter = 0; counter < 1000; counter++) {
+			new Student("C11111", "Joe", "term 3", "group 1", "MAD");
+		}
+	}
+}
+
+class DataStorage {
+	public static ArrayList<Student> studentList = new ArrayList<Student>();
+
+	public static void DisplayStudentReport() {
+		for (int counter = 0; counter < DataStorage.studentList.size(); counter++) {
+			System.out.println(DataStorage.studentList.get(counter));
 		}
 	}
 }
