@@ -1,0 +1,47 @@
+/*
+	Write a Java Program to create a STUDENT TYPE : DONE
+	Make 3 objects from this class and store them in an Array
+	walk over the array and out put the student records
+*/
+
+public class MainApplicationj {
+	public static void main(String[] args) {
+		Hypervisor h = new Hypervisor();
+		h.run();
+	}
+}
+
+class Hypervisor {
+	// here is where I organize the execution of my program
+	// method choreography
+	public void run() {
+		StudentFactory.MakeStudents();
+	}
+}
+
+// let's use the Software Pattern: The Factory Method
+
+class StudentFactory{
+	public static void MakeStudents() {
+		for (int counter=0; counter < 1000 ; counter++) {
+			new Student("C11111", "Joe", "3", "1", "MAD");
+		}
+	}
+}
+
+class Student {
+	// Student is an ADT : it is just a RECORD; no methods
+	public Student(String _sID, String _sName, String _term, String _group, String _programName) {
+		this.sID = _sID;
+		this.sName = _sName;
+		this.term = _term;
+		this.studentGroup = _group;
+		this.programName = _programName;
+	}
+
+	public String sID;
+	public String sName;
+	public String term;
+	public String studentGroup;
+	public String programName;
+}
