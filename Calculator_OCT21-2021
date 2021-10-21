@@ -1,0 +1,54 @@
+
+public class MainApplication {
+
+	public static void main(String[] args) {
+		// expected data input format:  verb num1 num2
+		System.out.println(Calculator.doCalculation(args));
+
+	}
+
+}
+
+class Calculator {
+	static int output;
+	// verb = add, substract, multiple, divide
+	static String verb;
+	static int input1, input2;
+	static int markerValue = -999;
+	
+	public static int doCalculation(String [] InputData){
+		verb = InputData[0];
+		input1 = Integer.parseInt(InputData[1]);
+		input2 = Integer.parseInt(InputData[2]);
+		
+		switch(verb) {
+		  case "add":
+		    Add._Add(input1, input2);
+		    break;
+
+		  default:
+		    System.out.println("Please follow the required input format: verb num1 num2");
+		    return markerValue;
+		}
+		 
+	}
+
+}
+
+class Add {
+	public static int _Add(int a, int b) {
+		return a+b;
+	}
+}
+
+class Substract {
+
+}
+
+class Multiply {
+
+}
+
+class Devide {
+
+}
