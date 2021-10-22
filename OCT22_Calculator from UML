@@ -1,0 +1,56 @@
+
+public class MainApplication {
+	/*
+	 * #TODO acquire from command line arguments: verb num1 num2 verb: add sub mult
+	 * div add 2 2 output : 4
+	 */
+	public static void main(String[] args) {
+		System.out
+				.println(Calculator.PerformCalculation(args[0], Integer.parseInt(args[1]), Integer.parseInt(args[2])));
+	}
+}
+
+class Calculator {
+
+	private static String verb;
+	private static int input1, input2;
+
+	public static int PerformCalculation(String verb, int input1, int input2) {
+		switch (verb) {
+		case "add":
+			return add(input1, input2);
+
+		case "sub":
+			return sub(input1, input2);
+		case "mult":
+			return mult(input1, input2);
+		case "div":
+			return div(input1, input2);
+
+		default:
+			return -999;
+		}
+
+	}
+
+	public String toString() {
+		return "working";
+	}
+
+	private static int add(int a, int b) {
+		return a + b;
+	}
+
+	private static int sub(int a, int b) {
+		return a - b;
+	}
+
+	private static int mult(int a, int b) {
+		return a * b;
+	}
+
+	private static int div(int a, int b) {
+		return a / b;
+	}
+
+}
